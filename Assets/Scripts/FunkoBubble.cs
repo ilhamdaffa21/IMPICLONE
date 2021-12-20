@@ -9,6 +9,7 @@ public class FunkoBubble : MonoBehaviour
     public TextMeshPro textMeshPro;
     public GameObject bubbleChat;
     string text = "Ada Batu";
+    string text2 = "Batunya Diatas";
     bool adaga = true;
     private void Start()
     {
@@ -28,6 +29,10 @@ public class FunkoBubble : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         bubbleChat.gameObject.SetActive(false);
-        
+        yield return new WaitForSeconds(30f);
+        textMeshPro.SetText(text2);
+        bubbleChat.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        bubbleChat.gameObject.SetActive(false);
     }
 }
