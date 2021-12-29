@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
     // Start is called before the first frame update
     public float MovSpeed;
-    public float JumpForce;
+    public float JumpForce, scaleFlip, moveBy;
     private Rigidbody2D _rigidbody;
     private Vector3 flipScale;
-    float  scaleFlip;
+    public double sprintStamina = 100;
+    bool staminaFull;
+    public Slider sprintValue;
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -18,11 +21,41 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(sprintStamina);
         var movement = Input.GetAxis("Horizontal");
         //transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovSpeed;
         float x = Input.GetAxisRaw("Horizontal");
-        float moveBy = x * 2;
-        _rigidbody.velocity = new Vector2(moveBy, _rigidbody.velocity.y);
+
+        //movement sprint dan tidak
+        if (Input.GetKey(KeyCode.W) && sprintStamina > 0)
+        {
+            _rigidbody.velocity = new Vector2(x * 5, _rigidbody.velocity.y);
+            sprintStamina -= 1;
+            sprintValue.value = (float)sprintStamina;
+        }
+        if ((!Input.GetKey(KeyCode.W)) || sprintStamina <= 0)
+        {
+            _rigidbody.velocity = new Vector2(x * 2, _rigidbody.velocity.y);
+        }
+
+        //nambah stamina
+        if (!staminaFull && (!Input.GetKey(KeyCode.W)))
+        {
+
+            sprintStamina += 1;
+            
+        sprintValue.value = (float)sprintStamina;
+        }
+
+        //cek apakah stamina penuh
+        if (sprintStamina >= 100)
+        {
+            staminaFull = true;
+        }
+        if (sprintStamina < 100)
+        {
+            staminaFull = false;
+        }
 
         //flip
         if (movement < 0)
@@ -43,5 +76,7 @@ public class Movement : MonoBehaviour
         {
             _rigidbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
         }
+
+
     }
 }
