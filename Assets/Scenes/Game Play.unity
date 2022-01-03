@@ -1646,7 +1646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &389370467
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5587,7 +5587,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 73.7
+  m_SurfaceArc: 70
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
