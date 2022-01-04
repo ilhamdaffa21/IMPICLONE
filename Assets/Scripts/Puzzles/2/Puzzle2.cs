@@ -10,6 +10,8 @@ public class Puzzle2 : MonoBehaviour {
 
 	public static bool isSafeOpened = false;
 
+	bool openScene = false;
+
 	// Use this for initialization
 	void Start () {
 		piano.SetActive (false);
@@ -19,7 +21,14 @@ public class Puzzle2 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if(Input.GetKeyDown(KeyCode.G))
+        {
+			openScene = true;
+        }
+		if (Input.GetKeyUp(KeyCode.G))
+		{
+			openScene = false;
+		}
 		if (isSafeOpened) {
 			piano.SetActive (false);
 			closedSafe.SetActive (false);
@@ -27,11 +36,15 @@ public class Puzzle2 : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D col)
+	void OnTriggerStay2D(Collider2D col)
 	{
-		if (col.gameObject.name.Equals ("Safe") && !isSafeOpened) {
-			piano.SetActive (true);
+		if (col.gameObject.name.Equals("Safe") && !isSafeOpened && openScene)
+		{
+			{
+				piano.SetActive(true);
+			}
 		}
+			
 	}
 
 	void OnTriggerExit2D(Collider2D col)
