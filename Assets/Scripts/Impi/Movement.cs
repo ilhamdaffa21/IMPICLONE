@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
         if (x == 0 && Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
         {
             _animimpi.SetBool("isImpiWalk", false);
+            _animimpi.SetBool("isImpiSprint", false);
 
         }
 
@@ -39,6 +40,7 @@ public class Movement : MonoBehaviour
         {
             //_animimpi.SetBool("isImpiSprint", false);
             _animimpi.SetBool("isImpiWalk", true && Mathf.Abs(_rigidbody.velocity.y) < 0.001f);
+            _animimpi.SetBool("isImpiSprint", false);
 
         }
 
@@ -55,6 +57,7 @@ public class Movement : MonoBehaviour
         if ((!Input.GetKey(KeyCode.LeftShift)) || sprintStamina <= 0 || isImpiGrab)
         {
             _rigidbody.velocity = new Vector2(x * 2, _rigidbody.velocity.y);
+           // _animimpi.SetBool("isImpiWalk", true);
         }
 
         //nambah stamina
