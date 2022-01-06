@@ -35,7 +35,7 @@ public class Movement : MonoBehaviour
 
         }
 
-        if (x != 0 && (!Input.GetKey(KeyCode.W) && Mathf.Abs(_rigidbody.velocity.y) < 0.001f) || isImpiGrab)
+        if (x != 0 && (!Input.GetKey(KeyCode.LeftShift) && Mathf.Abs(_rigidbody.velocity.y) < 0.001f) || isImpiGrab)
         {
             //_animimpi.SetBool("isImpiSprint", false);
             _animimpi.SetBool("isImpiWalk", true && Mathf.Abs(_rigidbody.velocity.y) < 0.001f);
@@ -44,7 +44,7 @@ public class Movement : MonoBehaviour
 
 
         //movement sprint dan tidak
-        if (Input.GetKey(KeyCode.W) && sprintStamina > 0 && !isImpiGrab)
+        if (Input.GetKey(KeyCode.LeftShift) && sprintStamina > 0 && !isImpiGrab)
         {
             _rigidbody.velocity = new Vector2(x * 5, _rigidbody.velocity.y);
             sprintStamina -= 1;
@@ -52,13 +52,13 @@ public class Movement : MonoBehaviour
             _animimpi.SetBool("isImpiSprint", true);
 
         }
-        if ((!Input.GetKey(KeyCode.W)) || sprintStamina <= 0 || isImpiGrab)
+        if ((!Input.GetKey(KeyCode.LeftShift)) || sprintStamina <= 0 || isImpiGrab)
         {
             _rigidbody.velocity = new Vector2(x * 2, _rigidbody.velocity.y);
         }
 
         //nambah stamina
-        if (!staminaFull && (!Input.GetKey(KeyCode.W)))
+        if (!staminaFull && (!Input.GetKey(KeyCode.LeftShift)))
         {
 
             sprintStamina += 1;
