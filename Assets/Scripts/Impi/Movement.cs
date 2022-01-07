@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     bool staminaFull;
     public Slider sprintValue;
     Animator _animimpi;
+    bool onGround;
 
     bool isImpiGrab = false;
     void Start()
@@ -44,6 +45,11 @@ public class Movement : MonoBehaviour
 
         }
 
+        if(Mathf.Abs(_rigidbody.velocity.y) > 0.001f)
+        {
+            _animimpi.SetBool("isImpiWalk", false);
+            _animimpi.SetBool("isImpiSprint", false);
+        }
 
         //movement sprint dan tidak
         if (Input.GetKey(KeyCode.LeftShift) && sprintStamina > 0 && !isImpiGrab)
@@ -57,6 +63,7 @@ public class Movement : MonoBehaviour
         if ((!Input.GetKey(KeyCode.LeftShift)) || sprintStamina <= 0 || isImpiGrab)
         {
             _rigidbody.velocity = new Vector2(x * 2, _rigidbody.velocity.y);
+            //
            // _animimpi.SetBool("isImpiWalk", true);
         }
 
@@ -83,6 +90,7 @@ public class Movement : MonoBehaviour
         if (movement < 0)
         {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
+
         }
         else if (movement > 0)
         {
@@ -94,7 +102,17 @@ public class Movement : MonoBehaviour
         //if (Mathf.Approximately(0, movement))
         //    transform.rotation = movement > 0 ? Quaternion.Euler(0, 100, 0) : Quaternion.identity;
 
-        if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
+
+        if(Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
+        {
+            onGround = true;
+        }
+        if(Mathf.Abs(_rigidbody.velocity.y) > 0.001f)
+        {
+            onGround = false;
+        }
+
+        if (Input.GetButtonDown("Jump") && onGround)
         {
             _animimpi.SetBool("isImpiSprint", false);
             _animimpi.SetBool("ISImpiWalk", false);
@@ -103,8 +121,9 @@ public class Movement : MonoBehaviour
         }
 
 
+
+
         //
-        print(isImpiGrab);
 
     }
 

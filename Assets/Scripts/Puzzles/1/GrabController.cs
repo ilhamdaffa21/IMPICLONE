@@ -25,6 +25,7 @@ public class GrabController : MonoBehaviour
             if (Input.GetKey(KeyCode.G))
             {
                 _animimpi.SetBool("isImpiWalkGrab", true);
+                _animimpi.SetBool("isImpiWalk", false);
                 mov.getParameterGrab(true);
                 grabcheck.collider.gameObject.transform.parent = boxHolder;
                 grabcheck.collider.gameObject.transform.position = boxHolder.position;

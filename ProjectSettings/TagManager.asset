@@ -8,6 +8,8 @@ TagManager:
   - Box
   - Garage
   - SoulStone
+  - GameManager
+  - Enemy
   layers:
   - Default
   - TransparentFX

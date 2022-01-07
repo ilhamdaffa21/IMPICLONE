@@ -20,8 +20,8 @@ public class TextController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            teks.text = isiteks;
-            teks.gameObject.SetActive(true);
+            //teks.text = isiteks;
+            //teks.gameObject.SetActive(true);
         }
     }
 
@@ -29,7 +29,7 @@ public class TextController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            teks.gameObject.SetActive(false);
+            //teks.gameObject.SetActive(false);
         }
     }
 }

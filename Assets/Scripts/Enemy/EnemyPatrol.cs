@@ -50,6 +50,7 @@ public class EnemyPatrol : MonoBehaviour
             charecterScale.x = -1;
             nextPos = pos1.position;
             rush = false;
+            gameObject.SetActive(false);
         }
         transform.localScale = charecterScale;
         transform.position = Vector3.MoveTowards(transform.position, nextPos, speedWalk * Time.deltaTime);
@@ -72,6 +73,7 @@ public class EnemyPatrol : MonoBehaviour
                 charecterScale.x = -1;
                 nextPos = pos1.position;
                 rush = false;
+                gameObject.SetActive(false);
             }
             transform.localScale = charecterScale;
             transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
