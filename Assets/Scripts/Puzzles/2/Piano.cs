@@ -17,14 +17,11 @@ public class Piano : MonoBehaviour {
 		if (codeTextValue == "ABCDEFGHI") {
 			wrongSound.Play();
 			Puzzle2.isSafeOpened = true;
-			
 		}
 
 		if (codeTextValue.Length >= 9)
 			codeTextValue = "";
-			
-			
-	}
+		}
 
 	public void AddDigit(string digit)
 	{
