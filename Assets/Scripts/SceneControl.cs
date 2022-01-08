@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneControl : MonoBehaviour
 {
-    public GameObject canvasTutorial;
+    public GameObject canvasTutorial,canvasMain;
     public void LoadScene()
     {
         canvasTutorial.SetActive(true);
+        canvasMain.SetActive(false);
     }
 
     public void QuitGame()
