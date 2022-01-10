@@ -10,6 +10,7 @@ TagManager:
   - SoulStone
   - GameManager
   - Enemy
+  - Crouch
   layers:
   - Default
   - TransparentFX

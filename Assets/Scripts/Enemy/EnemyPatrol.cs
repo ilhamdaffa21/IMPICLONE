@@ -10,9 +10,11 @@ public class EnemyPatrol : MonoBehaviour
     bool rush;
     Vector3 nextPos;
     float timerRush = 10f;
+    Animator _enemyAc;
     // Start is called before the first frame update
     void Start()
     {
+        _enemyAc = GetComponent<Animator>();
         nextPos = startPos.position;
         Vector3 pos = transform.position;
         pos.z = 0;
@@ -23,6 +25,7 @@ public class EnemyPatrol : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        transform.localScale = new Vector2((float)-0.5, (float)0.5);
         timerRush -= Time.fixedDeltaTime;
         if (timerRush <= 0)
         {
@@ -51,7 +54,9 @@ public class EnemyPatrol : MonoBehaviour
             nextPos = pos1.position;
             rush = false;
             gameObject.SetActive(false);
+
         }
+        _enemyAc.SetBool("isEnemyWalk", true);
         transform.localScale = charecterScale;
         transform.position = Vector3.MoveTowards(transform.position, nextPos, speedWalk * Time.deltaTime);
     }

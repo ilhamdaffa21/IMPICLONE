@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     bool staminaFull;
     public Slider sprintValue;
     Animator _animimpi;
-    bool onGround;
+    bool onGround, onCrouch = false;
 
     bool isImpiGrab = false;
     void Start()
@@ -26,18 +26,19 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(onCrouch);
         var movement = Input.GetAxis("Horizontal");
         //transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovSpeed;
         float x = Input.GetAxisRaw("Horizontal");
 
-        if (x == 0 && Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
+        if (x == 0 && Mathf.Abs(_rigidbody.velocity.y) < 0.001f || onCrouch)
         {
             _animimpi.SetBool("isImpiWalk", false);
             _animimpi.SetBool("isImpiSprint", false);
 
         }
 
-        if (x != 0 && (!Input.GetKey(KeyCode.LeftShift) && Mathf.Abs(_rigidbody.velocity.y) < 0.001f) || isImpiGrab)
+        if (x != 0 && (!Input.GetKey(KeyCode.LeftShift) && Mathf.Abs(_rigidbody.velocity.y) < 0.001f) && !onCrouch || isImpiGrab)
         {
             //_animimpi.SetBool("isImpiSprint", false);
             _animimpi.SetBool("isImpiWalk", true && Mathf.Abs(_rigidbody.velocity.y) < 0.001f);
@@ -52,7 +53,7 @@ public class Movement : MonoBehaviour
         }
 
         //movement sprint dan tidak
-        if (Input.GetKey(KeyCode.LeftShift) && sprintStamina > 0 && !isImpiGrab)
+        if (Input.GetKey(KeyCode.LeftShift) && sprintStamina > 0 && !isImpiGrab && !onCrouch)
         {
             _rigidbody.velocity = new Vector2(x * 5, _rigidbody.velocity.y);
             sprintStamina -= 1;
@@ -112,7 +113,7 @@ public class Movement : MonoBehaviour
             onGround = false;
         }
 
-        if (Input.GetButtonDown("Jump") && onGround)
+        if (Input.GetButtonDown("Jump") && onGround && !onCrouch)
         {
             _animimpi.SetBool("isImpiSprint", false);
             _animimpi.SetBool("ISImpiWalk", false);
@@ -130,5 +131,10 @@ public class Movement : MonoBehaviour
     public void getParameterGrab(bool parameter)
     {
         isImpiGrab = parameter;
+    }
+
+    public void getParameterCrouch(bool parameter)
+    {
+        onCrouch = parameter;
     }
 }
