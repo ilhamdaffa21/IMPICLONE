@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CollectObject : MonoBehaviour
 {
-    private int soulstone = 0;
+    public int soulstone = 0;
 
     [SerializeField] private Text soulstoneText;
     private void OnTriggerEnter2D(Collider2D collision)

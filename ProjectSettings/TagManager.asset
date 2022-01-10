@@ -11,6 +11,7 @@ TagManager:
   - GameManager
   - Enemy
   - Crouch
+  - LukisanManager
   layers:
   - Default
   - TransparentFX
