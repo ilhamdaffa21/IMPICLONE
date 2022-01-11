@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
     Animator _animimpi;
     bool onGround, onCrouch = false;
     public AudioSource _audioJump, _audioWalk;
+    bool isMoving = false;
 
     bool isImpiGrab = false;
     void Start()
@@ -46,10 +47,23 @@ public class Movement : MonoBehaviour
             _animimpi.SetBool("isImpiSprint", false);
 
         }
-        if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+        // if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+        // {
+        //     _audioWalk.Play();
+        // }
+
+        if (_rigidbody.velocity.x != 0)
+            isMoving = true;
+        else
+            isMoving = false;
+
+        if (isMoving && Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
         {
-            _audioWalk.Play();
+            if (!_audioWalk.isPlaying)
+                _audioWalk.Play();
         }
+        else
+            _audioWalk.Stop();
 
         if (Mathf.Abs(_rigidbody.velocity.y) > 0.001f)
         {
@@ -108,11 +122,11 @@ public class Movement : MonoBehaviour
         //    transform.rotation = movement > 0 ? Quaternion.Euler(0, 100, 0) : Quaternion.identity;
 
 
-        if(Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
+        if (Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
         {
             onGround = true;
         }
-        if(Mathf.Abs(_rigidbody.velocity.y) > 0.001f)
+        if (Mathf.Abs(_rigidbody.velocity.y) > 0.001f)
         {
             onGround = false;
         }
