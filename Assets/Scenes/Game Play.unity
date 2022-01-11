@@ -2565,9 +2565,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 410246132}
-  - component: {fileID: 410246135}
   - component: {fileID: 410246134}
   - component: {fileID: 410246133}
+  - component: {fileID: 410246135}
   m_Layer: 0
   m_Name: PintuKamarImpi
   m_TagString: Teleporter
