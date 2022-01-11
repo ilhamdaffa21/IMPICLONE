@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Crouch
   - LukisanManager
+  - FunkoDetector
   layers:
   - Default
   - TransparentFX

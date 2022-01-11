@@ -8,11 +8,12 @@ public class LukisanManager : MonoBehaviour
     bool isOneDone, isTwoDone, isThreeDone, isFourDone, isFiveDone = false;
     public GameObject batuJiwa, sprint, angkaBatu;
     public GameObject LukisanCanvas;
+    CollectObject co;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        co = GameObject.FindGameObjectWithTag("Player").GetComponent<CollectObject>();
     }
 
     // Update is called once per frame
@@ -24,6 +25,7 @@ public class LukisanManager : MonoBehaviour
             batuJiwa.SetActive(true);
             sprint.SetActive(true);
             angkaBatu.SetActive(true);
+            co.getSoulStone(1);
 
         }
     }

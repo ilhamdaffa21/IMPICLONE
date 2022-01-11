@@ -11,6 +11,7 @@ public class EnemyPatrol : MonoBehaviour
     Vector3 nextPos;
     float timerRush = 10f;
     Animator _enemyAc;
+    public AudioSource _audioWalk;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class EnemyPatrol : MonoBehaviour
         pos.z = 0;
         transform.position = pos;
         et = GameObject.FindObjectOfType<EnemyTeleporter>();
+        _audioWalk.Play();
     }
 
     // Update is called once per frame

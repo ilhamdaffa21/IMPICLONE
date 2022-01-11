@@ -17,4 +17,9 @@ public class CollectObject : MonoBehaviour
             soulstoneText.text = "" + soulstone;
         }
     }
+    public void getSoulStone(int param)
+    {
+        soulstone = soulstone + param;
+        soulstoneText.text = "" + soulstone;
+    }
 }

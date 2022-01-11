@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
     public Slider sprintValue;
     Animator _animimpi;
     bool onGround, onCrouch = false;
+    public AudioSource _audioJump, _audioWalk;
 
     bool isImpiGrab = false;
     void Start()
@@ -45,8 +46,12 @@ public class Movement : MonoBehaviour
             _animimpi.SetBool("isImpiSprint", false);
 
         }
+        if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+        {
+            _audioWalk.Play();
+        }
 
-        if(Mathf.Abs(_rigidbody.velocity.y) > 0.001f)
+        if (Mathf.Abs(_rigidbody.velocity.y) > 0.001f)
         {
             _animimpi.SetBool("isImpiWalk", false);
             _animimpi.SetBool("isImpiSprint", false);
@@ -65,7 +70,6 @@ public class Movement : MonoBehaviour
         {
             _rigidbody.velocity = new Vector2(x * 2, _rigidbody.velocity.y);
             //
-           // _animimpi.SetBool("isImpiWalk", true);
         }
 
         //nambah stamina
@@ -115,6 +119,7 @@ public class Movement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && onGround && !onCrouch)
         {
+            _audioJump.Play();
             _animimpi.SetBool("isImpiSprint", false);
             _animimpi.SetBool("ISImpiWalk", false);
             _animimpi.SetTrigger("isImpiJump");

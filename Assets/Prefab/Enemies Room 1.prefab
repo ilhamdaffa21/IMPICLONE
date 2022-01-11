@@ -146,6 +146,7 @@ MonoBehaviour:
   startPos: {fileID: 0}
   speed: 2
   speedWalk: 1.3
+  _audioWalk: {fileID: 0}
 --- !u!1 &5625582441695092390
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +293,7 @@ MonoBehaviour:
   startPos: {fileID: 0}
   speed: 2
   speedWalk: 1.3
+  _audioWalk: {fileID: 0}
 --- !u!1 &5625582441924335351
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +440,7 @@ MonoBehaviour:
   startPos: {fileID: 0}
   speed: 2
   speedWalk: 1.3
+  _audioWalk: {fileID: 0}
 --- !u!1 &5625582441974045510
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,6 +623,7 @@ MonoBehaviour:
   startPos: {fileID: 5625582441695092391}
   speed: 2
   speedWalk: 1.3
+  _audioWalk: {fileID: 3069033369028077928}
 --- !u!95 &1465883881476709659
 Animator:
   serializedVersion: 3
@@ -649,11 +653,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 56c716cea9dc4fe45a9dfccd88fb2106, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
