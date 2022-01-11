@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 95717353}
   m_Layer: 0
   m_Name: PintuKeKamarImpi
-  m_TagString: Untagged
+  m_TagString: Teleporter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4887,7 +4887,7 @@ GameObject:
   - component: {fileID: 734299795}
   m_Layer: 0
   m_Name: TanggaAtas
-  m_TagString: Untagged
+  m_TagString: Teleporter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7475,7 +7475,7 @@ GameObject:
   - component: {fileID: 1132528600}
   m_Layer: 0
   m_Name: TanggaBawah
-  m_TagString: Untagged
+  m_TagString: Teleporter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
