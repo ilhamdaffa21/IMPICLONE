@@ -3711,7 +3711,7 @@ GameObject:
   - component: {fileID: 562437246}
   m_Layer: 0
   m_Name: PintuKeKamarMandi
-  m_TagString: Untagged
+  m_TagString: Teleporter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6588,7 +6588,7 @@ GameObject:
   - component: {fileID: 1055049304}
   m_Layer: 0
   m_Name: PintuKamarOrtu
-  m_TagString: Untagged
+  m_TagString: Teleporter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10823,7 +10823,7 @@ GameObject:
   - component: {fileID: 1790983683}
   m_Layer: 0
   m_Name: PintuKeKamarOrangTua
-  m_TagString: Untagged
+  m_TagString: Teleporter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12079,7 +12079,7 @@ GameObject:
   - component: {fileID: 1930307485}
   m_Layer: 0
   m_Name: PintuKamarMandi
-  m_TagString: Untagged
+  m_TagString: Teleporter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
