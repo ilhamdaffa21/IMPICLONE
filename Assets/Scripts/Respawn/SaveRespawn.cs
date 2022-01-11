@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class SaveRespawn : MonoBehaviour
 {
-    Transform tempPoint,spawnPoint;
+    Transform tempPoint, spawnPoint;
     public GameObject GameOverUI;
     AudioSource _enemysound;
-    GameObject[] enemyprefs;
+    GameObject enemyprefs;
     // Start is called before the first frame update
     void Start()
     {
         tempPoint = GetComponent<Transform>();
-        _enemysound = GameObject.FindWithTag("Enemy").GetComponent<AudioSource>();
-        enemyprefs = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     // Update is called once per frame
     void Update()
     {
+        _enemysound = GameObject.FindGameObjectWithTag("Enemy").GetComponent<AudioSource>();
         //print(tempPoint.position);
-        enemyprefs = GameObject.FindGameObjectsWithTag("Enemy");
+        enemyprefs = GameObject.FindGameObjectWithTag("Enemy");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -38,20 +37,17 @@ public class SaveRespawn : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag.Equals("Enemy"))
+        if (collision.gameObject.tag.Equals("Enemy"))
         {
             GameOverUI.SetActive(true);
             Time.timeScale = 0;
             _enemysound.Stop();
-            for(int i = 0;i<0;i++)
-            {
-                enemyprefs[i].SetActive(false);
-            }
+            enemyprefs.SetActive(false);
 
         }
     }
 
-     public void respawnImpi()
+    public void respawnImpi()
     {
         transform.position = spawnPoint.position;
         GameOverUI.SetActive(false);
