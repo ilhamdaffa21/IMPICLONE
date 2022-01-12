@@ -33,6 +33,6 @@ public class ColliderDapur : MonoBehaviour
     {
         float randTime = Random.Range(1, 8  );
         yield return new WaitForSeconds(randTime);
-        es.spawnGarasi(true);
+        es.spawnDapur(true);
     }
 }
