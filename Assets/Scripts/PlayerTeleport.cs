@@ -5,15 +5,24 @@ using UnityEngine;
 public class PlayerTeleport : MonoBehaviour
 {
     private GameObject currentTeleporter;
+    public AudioSource _audioOpenPintu;
+    GrabController gc;
+    public Animator animtransition;
+    bool onGrab = false;
+
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+
+        if (Input.GetKeyDown(KeyCode.E) && !onGrab)
         {
             if (currentTeleporter != null)
             {
+                _audioOpenPintu.Play();
                 transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position;
+                animtransition.SetTrigger("isTransition");
+
             }
         }
     }
@@ -35,6 +44,11 @@ public class PlayerTeleport : MonoBehaviour
                 currentTeleporter = null;
             }
         }
+    }
+
+    public void getParameterGrab(bool parameter)
+    {
+        onGrab = parameter;
     }
 
 }

@@ -9,10 +9,12 @@ public class LukisanManager : MonoBehaviour
     public GameObject batuJiwa, sprint, angkaBatu;
     public GameObject LukisanCanvas;
     CollectObject co;
+    StorySoulStoneSprite ss;
 
     // Start is called before the first frame update
     void Start()
     {
+        ss = GameObject.FindGameObjectWithTag("StorySoul").GetComponent<StorySoulStoneSprite>();
         co = GameObject.FindGameObjectWithTag("Player").GetComponent<CollectObject>();
     }
 
@@ -26,7 +28,7 @@ public class LukisanManager : MonoBehaviour
             sprint.SetActive(true);
             angkaBatu.SetActive(true);
             co.getSoulStone(1);
-
+            ss.getParameterId(2);
         }
     }
     public void GetParameter(int parameter)

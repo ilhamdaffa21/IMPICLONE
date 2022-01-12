@@ -25,9 +25,17 @@ public class ColliderGarasi : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-          //  enemy.SetActive(false);
-            es.spawnGarasi(true);
+            StartCoroutine(waitTime());
+            //  enemy.SetActive(false);
+
         }
 
+    }
+
+    IEnumerator waitTime()
+    {
+        float randTime = Random.Range(1, 8);
+        yield return new WaitForSeconds(randTime);
+        es.spawnGarasi(true);
     }
 }

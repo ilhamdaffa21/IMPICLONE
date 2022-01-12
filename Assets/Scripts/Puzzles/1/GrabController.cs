@@ -10,9 +10,11 @@ public class GrabController : MonoBehaviour
     bool isGrab = false;
     Movement mov;
     Animator _animimpi;
+    PlayerTeleport pt;
     // Start is called before the first frame update
     void Start()
     {
+        pt = GetComponent<PlayerTeleport>();
         mov = GetComponent<Movement>();
         _animimpi = GetComponent<Animator>();
     }
@@ -25,6 +27,7 @@ public class GrabController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.G) && !isGrab)
             {
+                pt.getParameterGrab(true);
                 isGrab = true;
                 _animimpi.SetBool("isImpiWalkGrab", true);
                 _animimpi.SetBool("isImpiWalk", false);
@@ -36,6 +39,7 @@ public class GrabController : MonoBehaviour
             }
             if(Input.GetKeyUp(KeyCode.G) && isGrab)
             {
+                pt.getParameterGrab(false);
                 isGrab = false;
                 _animimpi.SetBool("isImpiWalkGrab", false);
                 mov.getParameterGrab(false);

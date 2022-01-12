@@ -24,11 +24,15 @@ public class ColliderDapur : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-           // enemy.SetActive(false);
-            print("kimak");
-            es.spawnDapur(true);
+            StartCoroutine(waitTime());
+            // enemy.SetActive(false);
+            //es.spawnDapur(true);
         }
-
-
+    }
+    IEnumerator waitTime()
+    {
+        float randTime = Random.Range(1, 8  );
+        yield return new WaitForSeconds(randTime);
+        es.spawnGarasi(true);
     }
 }

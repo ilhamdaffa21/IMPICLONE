@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     bool staminaFull;
     public Slider sprintValue;
     Animator _animimpi;
-    bool onGround, onCrouch = false;
+    bool onGround, onPause, onCrouch = false;
     public AudioSource _audioJump, _audioWalk;
     bool isMoving = false;
 
@@ -28,6 +28,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print("impi pause " + onPause);
         print(onCrouch);
         var movement = Input.GetAxis("Horizontal");
         //transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovSpeed;
@@ -40,7 +41,7 @@ public class Movement : MonoBehaviour
 
         }
 
-        if (x != 0 && (!Input.GetKey(KeyCode.LeftShift) && Mathf.Abs(_rigidbody.velocity.y) < 0.001f) && !onCrouch || isImpiGrab)
+        if (x != 0 && (!Input.GetKey(KeyCode.LeftShift) && Mathf.Abs(_rigidbody.velocity.y) < 0.001f) && !onPause && !onCrouch || isImpiGrab)
         {
             //_animimpi.SetBool("isImpiSprint", false);
             _animimpi.SetBool("isImpiWalk", true && Mathf.Abs(_rigidbody.velocity.y) < 0.001f);
@@ -57,7 +58,7 @@ public class Movement : MonoBehaviour
         else
             isMoving = false;
 
-        if (isMoving && Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
+        if (isMoving && !onPause && Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
         {
             if (!_audioWalk.isPlaying)
                 _audioWalk.Play();
@@ -153,6 +154,10 @@ public class Movement : MonoBehaviour
     }
 
     public void getParameterCrouch(bool parameter)
+    {
+        onCrouch = parameter;
+    }
+    public void getParameterPause(bool parameter)
     {
         onCrouch = parameter;
     }

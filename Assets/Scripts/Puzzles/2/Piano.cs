@@ -14,10 +14,13 @@ public class Piano : MonoBehaviour
 	int correct = 0;
 	CollectObject co;
 
+	StorySoulStoneSprite ss;
+
 
 	// Update is called once per frame
 	private void Start()
 	{
+		ss = GameObject.FindGameObjectWithTag("StorySoul").GetComponent<StorySoulStoneSprite>();
 		co = GameObject.FindGameObjectWithTag("Player").GetComponent<CollectObject>();
 		wrongSound = GetComponent<AudioSource>();
 	}
@@ -38,6 +41,7 @@ public class Piano : MonoBehaviour
 			print("benar semua");
 			Puzzle2.isSafeOpened = true;
 			co.getSoulStone(1);
+			ss.getParameterId(1);
 		}
 	}
 

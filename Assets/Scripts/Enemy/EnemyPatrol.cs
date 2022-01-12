@@ -11,7 +11,8 @@ public class EnemyPatrol : MonoBehaviour
     Vector3 nextPos;
     float timerRush = 10f;
     Animator _enemyAc;
-    public AudioSource _audioWalk;
+    public AudioSource _audioWalk, _audioOpenDoor;
+    public GameObject enemyParent;
     // Start is called before the first frame update
     void Start()
     {
@@ -93,6 +94,15 @@ public class EnemyPatrol : MonoBehaviour
         walk();
         enemyRush();
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag.Equals("EnemyDestroy"))
+        {
+            _audioOpenDoor.Play();
+            print("berhasil hilangin");
+            gameObject.SetActive(false);
+        }
+    }
 
 
 
@@ -104,7 +114,7 @@ public class EnemyPatrol : MonoBehaviour
     //        et.waitActive(true);
     //    }
     //}
-    
+
 
 
 }

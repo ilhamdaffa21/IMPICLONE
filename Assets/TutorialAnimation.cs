@@ -18,7 +18,7 @@ public class TutorialAnimation : MonoBehaviour
     }
     IEnumerator waitCoroutine()
     {
-        yield return new WaitForSeconds(5.1f);
+        yield return new WaitForSeconds(8.1f);
         SceneManager.LoadScene("Game Play");
 
     }
