@@ -15,6 +15,7 @@ TagManager:
   - FunkoDetector
   - StorySoul
   - EnemyDestroy
+  - CanvasStoryParent
   layers:
   - Default
   - TransparentFX

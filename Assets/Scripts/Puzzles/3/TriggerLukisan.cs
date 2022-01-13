@@ -13,6 +13,7 @@ public class TriggerLukisan : MonoBehaviour
             if (Input.GetKey(KeyCode.G))
             {
                 lukisan.SetActive(true);
+                print("test");
             }
         }
     }
