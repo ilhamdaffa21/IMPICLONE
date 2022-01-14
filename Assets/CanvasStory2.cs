@@ -23,7 +23,7 @@ public class CanvasStory2 : MonoBehaviour
     }
     IEnumerator waitStory2()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(25f);
         animStory2.SetTrigger("Story2End");
         csp.getParameter(true);
         yield return new WaitForSeconds(2f);

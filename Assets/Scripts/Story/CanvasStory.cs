@@ -29,7 +29,7 @@ public class CanvasStory : MonoBehaviour
 
     IEnumerator waitforStory1()
     {
-        yield return new WaitForSeconds(12f);
+        yield return new WaitForSeconds(32f);
         clickStory1();
     }
 }
