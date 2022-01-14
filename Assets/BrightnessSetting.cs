@@ -11,12 +11,23 @@ public class BrightnessSetting : MonoBehaviour
     void Start()
     {
         brightslider = GetComponent<Slider>();
-        brightslider.value = brightfade.color.a;
+        //if(SaveSettings.Setting.brightnessSetting == null)
+        //{
+        //    brightslider.value = brightfade.color.a;
+        //}
+        //if (SaveSettings.Setting.brightnessSetting != null)
+        //{
+            brightslider.value = SaveSettings.Setting.brightnessSetting;
+        //}
+
+        print(brightslider.value);
     }
 
     // Update is called once per frame
     void Update()
     {
+        print(SaveSettings.Setting.brightnessSetting);
         brightfade.color = new Color(brightfade.color.r, brightfade.color.g, brightfade.color.b, brightslider.value);
+        SaveSettings.Setting.brightnessSetting = brightslider.value;
     }
 }

@@ -15,24 +15,24 @@ public class FunkoBubble : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.CompareTag("Player"))
-        {
-            textMeshPro.SetText(text);
-            bubbleChat.gameObject.SetActive(true);
-            StartCoroutine(BubbleGone());
-        } 
-    }
+    //private void OnTriggerEnter2D(Collider2D collider)
+    //{
+    //    if (collider.CompareTag("Player"))
+    //    {
+    //        textMeshPro.SetText(text);
+    //        bubbleChat.gameObject.SetActive(true);
+    //        StartCoroutine(BubbleGone());
+    //    } 
+    //}
 
-    public IEnumerator BubbleGone()
-    {
-        yield return new WaitForSeconds(2f);
-        bubbleChat.gameObject.SetActive(false);
-        yield return new WaitForSeconds(30f);
-        textMeshPro.SetText(text2);
-        bubbleChat.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        bubbleChat.gameObject.SetActive(false);
-    }
+    //public IEnumerator BubbleGone()
+    //{
+    //    yield return new WaitForSeconds(2f);
+    //    bubbleChat.gameObject.SetActive(false);
+    //    yield return new WaitForSeconds(30f);
+    //    textMeshPro.SetText(text2);
+    //    bubbleChat.gameObject.SetActive(true);
+    //    yield return new WaitForSeconds(2f);
+    //    bubbleChat.gameObject.SetActive(false);
+    //}
 }
