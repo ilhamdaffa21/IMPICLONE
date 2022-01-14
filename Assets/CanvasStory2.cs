@@ -6,7 +6,7 @@ public class CanvasStory2 : MonoBehaviour
 {
     Animator animStory2;
     public Animator fadeblack;
-    public GameObject canvasStory, canvasGameplay;
+    public GameObject canvasStory, canvasGameplay, story1;
     public CanvasStoryParent csp;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,7 @@ public class CanvasStory2 : MonoBehaviour
         csp.getParameter(true);
         yield return new WaitForSeconds(2f);
         canvasStory.SetActive(false);
+        story1.SetActive(false);
         canvasGameplay.SetActive(true);
         fadeblack.SetTrigger("usTransition");
     }
