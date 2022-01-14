@@ -14,7 +14,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-        initPos = transform.position;
+        //initPos = transform.position;
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -33,11 +33,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        rectTransform.anchoredPosition += eventData.delta / (canvas.scaleFactor+2f);
     }
-    private void update()
+    private void Update()
     {
-        print(canvas.scaleFactor);
+        print(initPos);
     }
     public void ResetPosition()
     {
