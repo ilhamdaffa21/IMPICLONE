@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneControl : MonoBehaviour
 {
     public AudioSource _audioclick;
-    public GameObject canvasTutorial,canvasMain, canvasSetting;
+    public GameObject canvasTutorial,canvasMain, canvasSetting, canvasCredits;
     public void LoadScene()
     {
         _audioclick.Play();
@@ -30,6 +30,19 @@ public class SceneControl : MonoBehaviour
     {
         _audioclick.Play();
         canvasSetting.SetActive(false);
+        canvasMain.SetActive(true);
+    }
+    public void Credits()
+    {
+        _audioclick.Play();
+        canvasCredits.SetActive(true);
+        canvasMain.SetActive(false);
+
+    }
+    public void exitCredits()
+    {
+        _audioclick.Play();
+        canvasCredits.SetActive(false);
         canvasMain.SetActive(true);
     }
 }

@@ -22,7 +22,7 @@ public class EnemySpawn : MonoBehaviour
     //SPAWN DI GARASI
     public void spawnGarasi(bool parameter)
     {
-        float randTime = Random.Range(10f, 20f);
+        float randTime = Random.Range(13, 20);
         if (parameter && enemies.Length <= 0)
         {    
         GameObject enemy = ObjectPool.SharedInstance.GetPooledObject();

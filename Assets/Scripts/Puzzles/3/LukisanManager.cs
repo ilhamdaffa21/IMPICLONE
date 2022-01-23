@@ -34,7 +34,7 @@ public class LukisanManager : MonoBehaviour
         }
         if(isDone)
         {
-            triggerLukisan.SetActive(false);
+            //triggerLukisan.SetActive(false);
         }
     }
     public void GetParameter(int parameter)

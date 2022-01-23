@@ -28,6 +28,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         print("impi pause " + onPause);
         print(onCrouch);
         var movement = Input.GetAxis("Horizontal");
